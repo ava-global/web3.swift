@@ -53,6 +53,13 @@ class HexExtensionsTests: XCTestCase {
         XCTAssertEqual(dataToHex, string)
     }
 
+    func testBigIntToHexString() {
+        let string = "0x12a05f200"
+        let integer = BigUInt(5000000000)
+        let dataToHex = integer.web3.hexString
+        XCTAssertEqual(dataToHex, string)
+    }
+
     func testDataToHexStringFromBytes() {
         let data = Data([43, 111])
         let hexString = data.web3.hexString
