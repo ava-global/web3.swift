@@ -17,7 +17,13 @@ public extension BigUInt {
 
 public extension Web3Extensions where Base == BigUInt {
     var hexString: String {
-        return String(bytes: base.web3.bytes)
+        let bytes = base.web3.bytes
+        let result = bytes.enumerated().map({
+            ($0 == 0) ? String(format: "%01hhx", $1) :
+                        String(format: "%02hhx", $1)
+        }).joined()
+        
+        return "0x" + result
     }
 }
 
