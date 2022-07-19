@@ -10,7 +10,7 @@ import Foundation
 import BigInt
 
 public protocol ERC20Protocol {
-    init(client: EthereumClient)
+    init(client: EthereumClientProtocol)
 
     func name(tokenContract: EthereumAddress, completionHandler: @escaping(Result<String, Error>) -> Void)
     func symbol(tokenContract: EthereumAddress, completionHandler: @escaping(Result<String, Error>) -> Void)
