@@ -40,9 +40,9 @@ public protocol ERC20Protocol {
 }
 
 public class ERC20: ERC20Protocol {
-    let client: EthereumClient
+    let client: EthereumClientProtocol
 
-    required public init(client: EthereumClient) {
+    required public init(client: EthereumClientProtocol) {
         self.client = client
     }
 
