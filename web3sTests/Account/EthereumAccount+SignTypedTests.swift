@@ -13,6 +13,8 @@ import XCTest
 // https://github.com/dicether/js-eth-personal-sign-examples
 class EthereumAccount_SignTypedTests: XCTestCase {
     var account: EthereumAccount!
+    var avaAccount: EthereumAccount!
+
     let example1 = """
         {
           "types": {
@@ -159,6 +161,113 @@ class EthereumAccount_SignTypedTests: XCTestCase {
         }
     }
     """.data(using: .utf8)!
+
+       let example5: Data = """
+    {
+      "types": {
+        "EIP712Domain": [
+          { "name": "name", "type": "string"
+          },
+          { "name": "version", "type": "string"
+          },
+          { "name": "chainId", "type": "uint256"
+          },
+          { "name": "verifyingContract", "type": "address"
+          }
+        ],
+        "ForwardRequest": [
+          { "name": "from", "type": "address"
+          },
+          { "name": "to", "type": "address"
+          },
+          { "name": "value", "type": "uint256"
+          },
+          { "name": "gas", "type": "uint256"
+          },
+          { "name": "nonce", "type": "uint256"
+          },
+          { "name": "data", "type": "bytes"
+          }
+        ]
+      },
+      "domain": {
+        "name": "MinimalForwarder", 
+        "version": "0.0.1", 
+        "chainId": 97, 
+        "verifyingContract": "0xbCEC6860a7A060209d2D40fCFb8261ff737c0274"
+      },
+      "primaryType": "ForwardRequest",
+      "message": { 
+        "value": 0,
+        "gas": 1000000,
+        "nonce": "9",
+        "from": "0xA364B3E36d71a8361dAA0E20dc99E5F238c14856",
+        "to": "0xc5d6df9a8aF93b52b3ad6E001ebb60a22eE3A0aF",
+        "data": "0xd7141ecd00000000000000000000000000000000000000000000010ef12ef7760a5800000000000000000000000000000000000000000000000000039aa51ca2c52301830000000000000000000000000000000000000000000000000000000000000100000000000000000000000000a364b3e36d71a8361daa0e20dc99e5f238c14856ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff000000000000000000000000000000000000000000000000000000000000001b75f0594bf68f9796838fd367faeecaaf2d721451fd11ed421b820fdabc45ebb03806a8aff44a068c1b18be419f20b0d19d1a231b01ea82fcc24bfb268319117b00000000000000000000000000000000000000000000000000000000000000020000000000000000000000007747f922b912546cce00d3a6d1ddb5205b07f4e5000000000000000000000000679e25d1e2544767df08b239f30e64f3a35e7ecb"
+      }
+    }
+    """.data(using: .utf8)!
+
+    let example6: Data = """
+    {
+      "types": {
+        "EIP712Domain": [
+          {
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "name": "version",
+            "type": "string"
+          },
+          {
+            "name": "chainId",
+            "type": "uint256"
+          },
+          {
+            "name": "verifyingContract",
+            "type": "address"
+          }
+        ],
+        "Permit": [
+          {
+            "name": "owner",
+            "type": "address"
+          },
+          {
+            "name": "spender",
+            "type": "address"
+          },
+          {
+            "name": "value",
+            "type": "uint256"
+          },
+          {
+            "name": "nonce",
+            "type": "uint256"
+          },
+          {
+            "name": "deadline",
+            "type": "uint256"
+          }
+        ]
+      },
+      "domain": {
+        "name": "Avantis USD",
+        "version": "1",
+        "chainId": 97,
+        "verifyingContract": "0x7747f922B912546CCe00D3a6d1DDB5205B07F4e5"
+      },
+      "primaryType": "Permit",
+      "message": {
+        "owner": "0xA364B3E36d71a8361dAA0E20dc99E5F238c14856",
+        "spender": "0xc5d6df9a8aF93b52b3ad6E001ebb60a22eE3A0aF",
+        "value": "0x010f0cf064dd59200000",
+        "nonce": "20",
+        "deadline": "0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+      }
+    } 
+    """.data(using: .utf8)!
     
     let decoder = JSONDecoder()
     
@@ -166,6 +275,10 @@ class EthereumAccount_SignTypedTests: XCTestCase {
         let keyStorage = EthereumKeyLocalStorage()
         try! keyStorage.storePrivateKey(key: "cow".web3.keccak256)
         self.account = try! EthereumAccount(keyStorage: keyStorage)
+
+        let importAccount: (EthereumKeyStorageProtocol, String, String) throws -> EthereumAccount = EthereumAccount.importAccount
+        let avaKeyStorage = EthereumKeyLocalStorage()
+        self.avaAccount = try! importAccount(avaKeyStorage, "5f1414763f0fe9ff6d6ea3fe4aafa5e4798f70adc53da1f156eb34307cd9d1fa",  "")
     }
     
     func test_GivenExample_TypeHashIsCorrect() {
@@ -246,5 +359,18 @@ class EthereumAccount_SignTypedTests: XCTestCase {
         let typedData = try! decoder.decode(TypedData.self, from: example1)
         let signed = try? account.signMessage(message: typedData)
         XCTAssertEqual(signed, "0x4355c47d63924e8a72e509b65029052eb6c299d53a04e167c5775fd466751c9d07299936d304c153f6443dfa05f40ff007d72911b6f72307f996231605b915621c")
+    }
+
+    func test_givenExample_ItSignsCorrectlyWithForwarder() {
+        let typedData = try! decoder.decode(TypedData.self, from: example5)
+        let signed = try? avaAccount.signMessage(message: typedData)
+        XCTAssertEqual(signed, "0x1ad8dbd7f065de8da5a881689d0aff3d1c74012c84374a85d321c8d67d3acd9f09232919af6f7aad5331c4b902e9b979c69bb43afe647f59e167eb22fe0ceee81c")
+    }
+
+    func test_givenExample_ItSignsCorrectlyWithPermit() {
+        let typedData = try! decoder.decode(TypedData.self, from: example6)
+        let signed = try? avaAccount.signMessage(message: typedData)
+
+        XCTAssertEqual(signed, "0x75f0594bf68f9796838fd367faeecaaf2d721451fd11ed421b820fdabc45ebb03806a8aff44a068c1b18be419f20b0d19d1a231b01ea82fcc24bfb268319117b1b")
     }
 }
