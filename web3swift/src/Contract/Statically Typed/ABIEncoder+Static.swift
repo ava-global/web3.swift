@@ -36,7 +36,7 @@ extension ABIEncoder {
             } else {
                 return try ABIEncoder.encodeRaw(String(bytes: data.web3.bytes), forType: type, padded: !packed)
             }
-        case let data as AVAData32:
+         case let data as AVAData32:
             return try ABIEncoder.encodeRaw(String(bytes: data.rawValue.web3.bytes), forType: .FixedBytes(32), padded: !packed)
         case let value as ABITuple:
             return try encodeTuple(value, type: type)
