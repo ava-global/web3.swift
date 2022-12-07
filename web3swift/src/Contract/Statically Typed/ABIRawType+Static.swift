@@ -462,6 +462,12 @@ public struct Data23: ABIStaticSizeDataType {
     }
     
     public static var parser: ParserFunction = DataParser
+
+     var rawData: Data
+
+     public init(data: Data) {
+         self.rawData = data
+     }
 }
 
 public struct Data24: ABIStaticSizeDataType {
