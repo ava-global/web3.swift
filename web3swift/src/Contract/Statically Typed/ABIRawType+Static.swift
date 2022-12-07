@@ -154,6 +154,12 @@ public struct Data1: ABIStaticSizeDataType {
     }
     
     public static var parser: ParserFunction = DataParser
+
+    var rawData: Data
+
+     public init(data: Data) {
+         self.rawData = data
+     }
 }
 
 public struct Data2: ABIStaticSizeDataType {
@@ -162,6 +168,12 @@ public struct Data2: ABIStaticSizeDataType {
     }
     
     public static var parser: ParserFunction = DataParser
+
+    var rawData: Data
+
+     public init(data: Data) {
+         self.rawData = data
+     }
 }
 
 public struct Data3: ABIStaticSizeDataType {
@@ -170,6 +182,12 @@ public struct Data3: ABIStaticSizeDataType {
     }
     
     public static var parser: ParserFunction = DataParser
+
+    var rawData: Data
+
+     public init(data: Data) {
+         self.rawData = data
+     }
 }
 
 public struct Data4: ABIStaticSizeDataType {
@@ -178,6 +196,12 @@ public struct Data4: ABIStaticSizeDataType {
     }
     
     public static var parser: ParserFunction = DataParser
+
+    var rawData: Data
+
+     public init(data: Data) {
+         self.rawData = data
+     }
 }
 
 public struct Data5: ABIStaticSizeDataType {
@@ -186,6 +210,12 @@ public struct Data5: ABIStaticSizeDataType {
     }
     
     public static var parser: ParserFunction = DataParser
+
+    var rawData: Data
+
+     public init(data: Data) {
+         self.rawData = data
+     }
 }
 
 public struct Data6: ABIStaticSizeDataType {
@@ -194,6 +224,12 @@ public struct Data6: ABIStaticSizeDataType {
     }
     
     public static var parser: ParserFunction = DataParser
+
+    var rawData: Data
+
+     public init(data: Data) {
+         self.rawData = data
+     }
 }
 
 public struct Data7: ABIStaticSizeDataType {
@@ -202,6 +238,12 @@ public struct Data7: ABIStaticSizeDataType {
     }
     
     public static var parser: ParserFunction = DataParser
+
+    var rawData: Data
+
+     public init(data: Data) {
+         self.rawData = data
+     }
 }
 
 public struct Data8: ABIStaticSizeDataType {
@@ -210,6 +252,12 @@ public struct Data8: ABIStaticSizeDataType {
     }
     
     public static var parser: ParserFunction = DataParser
+
+    var rawData: Data
+
+     public init(data: Data) {
+         self.rawData = data
+     }
 }
 
 public struct Data9: ABIStaticSizeDataType {
@@ -218,6 +266,12 @@ public struct Data9: ABIStaticSizeDataType {
     }
     
     public static var parser: ParserFunction = DataParser
+
+    var rawData: Data
+
+     public init(data: Data) {
+         self.rawData = data
+     }
 }
 
 public struct Data10: ABIStaticSizeDataType {
@@ -226,6 +280,12 @@ public struct Data10: ABIStaticSizeDataType {
     }
     
     public static var parser: ParserFunction = DataParser
+
+    var rawData: Data
+
+     public init(data: Data) {
+         self.rawData = data
+     }
 }
 
 public struct Data11: ABIStaticSizeDataType {
@@ -234,6 +294,12 @@ public struct Data11: ABIStaticSizeDataType {
     }
     
     public static var parser: ParserFunction = DataParser
+
+    var rawData: Data
+
+     public init(data: Data) {
+         self.rawData = data
+     }
 }
 
 public struct Data12: ABIStaticSizeDataType {
@@ -242,6 +308,12 @@ public struct Data12: ABIStaticSizeDataType {
     }
     
     public static var parser: ParserFunction = DataParser
+
+    var rawData: Data
+
+     public init(data: Data) {
+         self.rawData = data
+     }
 }
 
 public struct Data13: ABIStaticSizeDataType {
@@ -250,6 +322,12 @@ public struct Data13: ABIStaticSizeDataType {
     }
     
     public static var parser: ParserFunction = DataParser
+
+    var rawData: Data
+
+     public init(data: Data) {
+         self.rawData = data
+     }
 }
 
 public struct Data14: ABIStaticSizeDataType {
@@ -258,6 +336,12 @@ public struct Data14: ABIStaticSizeDataType {
     }
     
     public static var parser: ParserFunction = DataParser
+
+    var rawData: Data
+
+     public init(data: Data) {
+         self.rawData = data
+     }
 }
 
 public struct Data15: ABIStaticSizeDataType {
@@ -266,6 +350,12 @@ public struct Data15: ABIStaticSizeDataType {
     }
     
     public static var parser: ParserFunction = DataParser
+
+    var rawData: Data
+
+     public init(data: Data) {
+         self.rawData = data
+     }
 }
 
 public struct Data16: ABIStaticSizeDataType {
@@ -274,6 +364,12 @@ public struct Data16: ABIStaticSizeDataType {
     }
     
     public static var parser: ParserFunction = DataParser
+
+    var rawData: Data
+
+     public init(data: Data) {
+         self.rawData = data
+     }
 }
 
 public struct Data17: ABIStaticSizeDataType {
@@ -282,6 +378,12 @@ public struct Data17: ABIStaticSizeDataType {
     }
     
     public static var parser: ParserFunction = DataParser
+
+    var rawData: Data
+
+     public init(data: Data) {
+         self.rawData = data
+     }
 }
 
 public struct Data18: ABIStaticSizeDataType {
@@ -290,6 +392,12 @@ public struct Data18: ABIStaticSizeDataType {
     }
     
     public static var parser: ParserFunction = DataParser
+
+    var rawData: Data
+
+     public init(data: Data) {
+         self.rawData = data
+     }
 }
 
 public struct Data19: ABIStaticSizeDataType {
@@ -298,6 +406,12 @@ public struct Data19: ABIStaticSizeDataType {
     }
     
     public static var parser: ParserFunction = DataParser
+
+    var rawData: Data
+
+     public init(data: Data) {
+         self.rawData = data
+     }
 }
 
 public struct Data20: ABIStaticSizeDataType {
@@ -306,6 +420,12 @@ public struct Data20: ABIStaticSizeDataType {
     }
     
     public static var parser: ParserFunction = DataParser
+
+    var rawData: Data
+
+     public init(data: Data) {
+         self.rawData = data
+     }
 }
 
 public struct Data21: ABIStaticSizeDataType {
@@ -314,6 +434,12 @@ public struct Data21: ABIStaticSizeDataType {
     }
     
     public static var parser: ParserFunction = DataParser
+
+    var rawData: Data
+
+     public init(data: Data) {
+         self.rawData = data
+     }
 }
 
 public struct Data22: ABIStaticSizeDataType {
@@ -322,6 +448,12 @@ public struct Data22: ABIStaticSizeDataType {
     }
     
     public static var parser: ParserFunction = DataParser
+
+    var rawData: Data
+
+     public init(data: Data) {
+         self.rawData = data
+     }
 }
 
 public struct Data23: ABIStaticSizeDataType {
@@ -338,6 +470,12 @@ public struct Data24: ABIStaticSizeDataType {
     }
     
     public static var parser: ParserFunction = DataParser
+
+    var rawData: Data
+
+     public init(data: Data) {
+         self.rawData = data
+     }
 }
 
 public struct Data25: ABIStaticSizeDataType {
@@ -346,6 +484,12 @@ public struct Data25: ABIStaticSizeDataType {
     }
     
     public static var parser: ParserFunction = DataParser
+
+    var rawData: Data
+
+     public init(data: Data) {
+         self.rawData = data
+     }
 }
 
 public struct Data26: ABIStaticSizeDataType {
@@ -354,6 +498,12 @@ public struct Data26: ABIStaticSizeDataType {
     }
     
     public static var parser: ParserFunction = DataParser
+
+    var rawData: Data
+
+     public init(data: Data) {
+         self.rawData = data
+     }
 }
 
 public struct Data27: ABIStaticSizeDataType {
@@ -362,6 +512,12 @@ public struct Data27: ABIStaticSizeDataType {
     }
     
     public static var parser: ParserFunction = DataParser
+
+    var rawData: Data
+
+     public init(data: Data) {
+         self.rawData = data
+     }
 }
 
 public struct Data28: ABIStaticSizeDataType {
@@ -370,6 +526,12 @@ public struct Data28: ABIStaticSizeDataType {
     }
     
     public static var parser: ParserFunction = DataParser
+
+    var rawData: Data
+
+     public init(data: Data) {
+         self.rawData = data
+     }
 }
 
 public struct Data29: ABIStaticSizeDataType {
@@ -378,6 +540,12 @@ public struct Data29: ABIStaticSizeDataType {
     }
     
     public static var parser: ParserFunction = DataParser
+
+    var rawData: Data
+
+     public init(data: Data) {
+         self.rawData = data
+     }
 }
 
 public struct Data30: ABIStaticSizeDataType {
@@ -386,6 +554,12 @@ public struct Data30: ABIStaticSizeDataType {
     }
     
     public static var parser: ParserFunction = DataParser
+
+    var rawData: Data
+
+     public init(data: Data) {
+         self.rawData = data
+     }
 }
 
 public struct Data31: ABIStaticSizeDataType {
@@ -394,6 +568,12 @@ public struct Data31: ABIStaticSizeDataType {
     }
     
     public static var parser: ParserFunction = DataParser
+
+    var rawData: Data
+
+     public init(data: Data) {
+         self.rawData = data
+     }
 }
 
 public struct Data32: ABIStaticSizeDataType {
@@ -402,6 +582,12 @@ public struct Data32: ABIStaticSizeDataType {
     }
     
     public static var parser: ParserFunction = DataParser
+
+    var rawData: Data
+
+     public init(data: Data) {
+         self.rawData = data
+     }
 }
 
 public struct ABIArray<T: ABIType>: ABIType {
